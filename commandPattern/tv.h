@@ -1,6 +1,6 @@
 
-#ifndef TV_H
-#define TV_H
+#ifndef __TV_H
+#define __TV_H
 
 #include "common_type.h"
 
