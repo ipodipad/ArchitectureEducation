@@ -1,8 +1,9 @@
 #include "tv.h"
 #include <stdlib.h>
-
-static final int CHANNEL_MIN = 10;
-static final int CHANNEL_MAX = 35;
+#include <stdio.h>
+#include "common_type.h"
+static const int CHANNEL_MIN = 10;
+static const int CHANNEL_MAX = 35;
 
 TV *TV_Create() {
 	TV* tv = (TV *)malloc(sizeof(TV));
@@ -25,20 +26,20 @@ void power(struct TV *self) {
 void mute(struct TV *self) {
 	if (!self->powerOn) return;
 	self->muteOn = !self->muteOn;
-	if (muteOn) printf("Mute On\n");
+	if (self->muteOn) printf("Mute On\n");
 	else printf("Mute Off\n");	
 }
 
 void channelUp(struct TV *self) {
 	if (!self->powerOn) return;
-	channel++;
+	self->channel++;
 	if (self->channel > CHANNEL_MAX) self->channel = CHANNEL_MIN;
-	printf("Channel: %d\n¡°, self->channel);
+	printf("Channel: %d\n", self->channel);
 }
 
 void channelDown(struct TV *self) {
 	if (!self->powerOn) return;
-	channel--;
+	self->channel--;
 	if (self->channel < CHANNEL_MIN) self->channel = CHANNEL_MAX;
-	printf("Channel: %d\n¡°, channel);
+	printf("Channel: %d\n", self->channel);
 }

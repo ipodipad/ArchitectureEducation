@@ -1,4 +1,9 @@
 
+#ifndef TV_H
+#define TV_H
+
+#include "common_type.h"
+
 typedef struct TV {
 	bool powerOn;
 	bool muteOn;
@@ -18,3 +23,5 @@ void mute(struct TV *self);
 void channelUp(struct TV *self);
 
 void channelDown(struct TV *self);
+
+#endif
