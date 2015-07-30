@@ -10,8 +10,7 @@
 
 #define true 1
 #define false 0
-#define bool unsigned char
-
+typedef unsigned char bool;
 
 
 #endif /* COMMON_TYPE_H_ */
