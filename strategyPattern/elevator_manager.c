@@ -1,5 +1,6 @@
 #include "elevator_manager.h"
 #include <stdlib.h>
+#include "CElevatorSelectBySize.h"
 
 ElevatorManager *ElevatorManager_Create(int controllerCount) {
 	int i;
@@ -18,6 +19,10 @@ void processRequest(ElevatorManager *self, int destination, int direction) {
 	ElevatorController *controller;		
 
 	// select an elevator to maximize throughput of the system
+
+	CElevatorSelectBySize* selectStrategy = CElevatorSelectBySize_Create();
+	selectedElevator = selectStrategy->elevatorSelectStrategy->doSelect;
+
 
 	controller = self->controllers[selectedElevator];
 	controller->gotoFloor(controller, destination);
